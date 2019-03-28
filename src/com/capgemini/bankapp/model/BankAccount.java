@@ -19,6 +19,15 @@ public class BankAccount {
 		this.accountBalance = accountBalance;
 	}
 	
+	public BankAccount(long accountId, String accountType, String accountHolderName) {
+		super();
+		this.accountId = accountId;
+		this.accountType = accountType;
+		this.accountHolderName = accountHolderName;
+	}
+	
+	
+	
 	
 
 	public BankAccount(long accountId,  String accountType, String accountHolderName, double accountBalance) {
