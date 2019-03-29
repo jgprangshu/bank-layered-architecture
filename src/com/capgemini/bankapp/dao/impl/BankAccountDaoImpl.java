@@ -19,9 +19,8 @@ public class BankAccountDaoImpl implements BankAccountDao {
 	public double getBalance(long accountId) {
 		String query = "SELECT account_balance FROM bankaccounts WHERE account_id=" + accountId;
 		double balance = -1;
-
-		try (Connection connection = DbUtil.getConnection();
-				PreparedStatement statement = connection.prepareStatement(query);
+		Connection connection = DbUtil.getConnection();
+		try (PreparedStatement statement = connection.prepareStatement(query);
 				ResultSet result = statement.executeQuery()) {
 			while (result.next()) {
 				balance = result.getDouble(1);
@@ -64,7 +63,6 @@ public class BankAccountDaoImpl implements BankAccountDao {
 
 			int result = statement.executeUpdate();
 			System.out.println("No. of rows updated :" + result);
-			connection.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

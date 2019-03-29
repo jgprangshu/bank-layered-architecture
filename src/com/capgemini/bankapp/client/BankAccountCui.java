@@ -47,7 +47,7 @@ public class BankAccountCui {
 					accountType = reader.readLine();
 					System.out.println("Enter account balance: ");
 					accountBalance = Double.parseDouble(reader.readLine());
-					BankAccount account = new BankAccount(accountHolderName, accountType, accountBalance);
+					BankAccount account = new BankAccount(accountType, accountHolderName, accountBalance);
 					if (bankService.addNewBankAccount(account))
 						System.out.println("Account created successfully...\n");
 					else
@@ -68,7 +68,7 @@ public class BankAccountCui {
 						e3.printStackTrace();
 					} catch (BankAccountNotFoundException e3) {
 						System.out.println("Bank account doesn't exsist");
-						e3.printStackTrace();
+						//e3.printStackTrace();
 					}
 					break;	
 					//	logger.error("Exception: ", e);

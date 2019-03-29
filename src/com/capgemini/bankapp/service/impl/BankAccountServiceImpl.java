@@ -39,7 +39,7 @@ public class BankAccountServiceImpl implements BankAccountService {
 			balance = balance - amount;
 			bankAccountDao.updateBalance(accountId, balance);
 			DbUtil.commit();
-			System.out.println("New Updated balance after withdraw is Rs " + balance);
+			System.out.println("New Updated balance after withdraw is Rs:" + balance);
 			return balance;
 
 		} else
@@ -123,10 +123,13 @@ public class BankAccountServiceImpl implements BankAccountService {
 	@Override
 	public boolean updateBankAccountDetails(long accountId, String account_type, String customer_name) {
 		boolean result= bankAccountDao.updateBankAccountDetails(accountId, account_type, customer_name);
-		if(result) {
-			DbUtil.commit();
+		if(result) 
+				DbUtil.commit();
+			return result;
 		}
-		return result;
+		
 	}
+	
+	
 
-}
+
